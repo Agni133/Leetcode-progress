@@ -2,7 +2,7 @@ class Solution {
 
   boolean isHappy(int n) {
 
-    Set<Integer> usedIntegers = new HashSet<>();
+    Set<Integer> set = new HashSet<>();
     while (true) {
 
       // Find the sum of squares
@@ -20,9 +20,9 @@ class Solution {
 
       // Check if we have already encountered
       // that number
-      if (usedIntegers.contains(n))
+      if (set.contains(n))
         return false;
-      usedIntegers.add(n);
+      set.add(n);
     }
   }
 
