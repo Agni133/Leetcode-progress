@@ -1,15 +1,26 @@
 class Solution {
     public int thirdMax(int[] nums) {
-        Arrays.sort(nums);
-        // if(nums.length<3) return nums[nums.length-1];
+        long firstmax = Long.MIN_VALUE;
+        long secmax = Long.MIN_VALUE;
+        long thirdmax = Long.MIN_VALUE;
 
-        HashSet<Integer> s = new HashSet<>();
-        
-        for(int i=nums.length-1;i>=0;i--){
-            s.add(nums[i]);
-            if(s.size()==3) return nums[i];
-
+        for (int num : nums) {
+            if (num >= firstmax) {
+                if (num > firstmax) {
+                    thirdmax = secmax;
+                    secmax = firstmax;
+                    firstmax = num;
+                }
+            } else if (num >= secmax) {
+                if (num > secmax) {
+                    thirdmax = secmax;
+                    secmax = num;
+                }
+            } else if (num > thirdmax) {
+                thirdmax = num;
+            }
         }
-        return nums[nums.length-1];
+
+        return thirdmax == Long.MIN_VALUE ? (int)firstmax : (int)thirdmax;
     }
 }
