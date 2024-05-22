@@ -1,2 +1,2 @@
 # Leetcode-progress
-ALL THE SOLVED SOLUTIONS OF DSA LEETCODE 
+Track all the solved solution of mine that i have done in leetcode  
